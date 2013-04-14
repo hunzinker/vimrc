@@ -34,3 +34,9 @@
 [submodule "bundle/visual-star-search"]
 	path = bundle/visual-star-search
 	url = git://github.com/bronson/vim-visual-star-search.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
