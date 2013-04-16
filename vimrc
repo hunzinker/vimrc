@@ -127,7 +127,7 @@ if !exists("autocommands_loaded")
     autocmd BufRead,BufNewFile *.scss   set filetype=css
 
     " Set filetype for JavaScript
-    autocmd BufRead,BufNewFile *.js,*.handlebars  set filetype=javascript
+    autocmd BufRead,BufNewFile *.js,*.handlebars,*.coffee  set filetype=javascript
 
     " Set filetype for JSON
     autocmd BufRead,BufNewFile *.json  set filetype=json
