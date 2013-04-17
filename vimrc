@@ -1,11 +1,15 @@
+set nocompatible
+
 call pathogen#incubate()
 call pathogen#helptags()
 
 syntax on
 
-set encoding=utf-8
+filetype on
+filetype plugin on
+filetype plugin indent on
 
-set nocompatible
+set encoding=utf-8
 
 set number
 
@@ -85,10 +89,6 @@ set laststatus=2
 
 colorscheme desert
 
-filetype on
-filetype plugin on
-filetype plugin indent on
-
 " Map <Leader>
 let mapleader = ','
 
@@ -127,7 +127,10 @@ if !exists("autocommands_loaded")
     autocmd BufRead,BufNewFile *.scss   set filetype=css
 
     " Set filetype for JavaScript
-    autocmd BufRead,BufNewFile *.js,*.handlebars,*.coffee  set filetype=javascript
+    autocmd BufRead,BufNewFile *.js,*.handlebars  set filetype=javascript
+
+    " Setup coffeescript
+    autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
     " Set filetype for JSON
     autocmd BufRead,BufNewFile *.json  set filetype=json
