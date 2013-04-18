@@ -105,6 +105,9 @@ nmap <F9> :NERDTreeToggle<CR>
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! %!sudo tee > /dev/null %
+
 " Command-T settings
 let g:CommandTMaxHeight = 20
 
