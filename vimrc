@@ -110,6 +110,7 @@ cmap w!! %!sudo tee > /dev/null %
 
 " Command-T settings
 let g:CommandTMaxHeight = 20
+let g:CommandTCancelMap='<C-x>'
 
 " Tagbar settings
 let g:tagbar_width = 30
