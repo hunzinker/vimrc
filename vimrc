@@ -41,6 +41,9 @@ set showcmd
 
 set hidden
 
+" Allow yy, D and P to work in clipboard
+set clipboard=unnamed
+
 set backupdir=~/.vim_backup
 if !isdirectory(expand(&backupdir))
     call mkdir(expand(&backupdir), "p")
