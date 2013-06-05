@@ -102,8 +102,8 @@ endif
 
 " Key mappings
 nmap <leader>v :tabedit $MYVIMRC<CR>
-nmap <F8> :TagbarToggle<CR>
-nmap <F9> :NERDTreeToggle<CR>
+nmap T :TagbarToggle<CR>
+nmap N :NERDTreeToggle<CR>
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
