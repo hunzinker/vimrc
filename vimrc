@@ -122,6 +122,7 @@ let g:tagbar_width = 30
 
 " NERDstuff
 let NERDSpaceDelims=1
+let NERDTreeIgnore=['.DS_Store']
 
 " Prevents autocommands from loading twice
 if !exists("autocommands_loaded")
