@@ -11,40 +11,55 @@ filetype plugin indent on
 
 set encoding=utf-8
 
-set number
-
-set backspace=2
-
-set nowrap
+set backspace=indent,eol,start
 set sidescroll=10
 set textwidth=78
-set formatoptions=tcq
-
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set noautoindent
 set nosmartindent
+set wildmenu
+set wildmode=list:longest
+set completeopt=longest,menu
+set pumheight=20
 
-if has("mouse")
-    set mouse=a
-endif
+" Buffers
+set hidden
+set clipboard=unnamed
+set wildignore+=*.DS_Store
+set splitbelow splitright
 
+" Searching
 set ignorecase
 set smartcase
 set incsearch
 set showmatch
 set hlsearch
 
+" UI
+set formatoptions=tcq
 set showmode
 set showcmd
+set number
+set nowrap
+set scrolloff=3
+set sidescrolloff=3
+set ruler
+set nostartofline
+set noerrorbells
+set novisualbell
+set ttyfast
+set laststatus=2
+set foldlevelstart=0
+set foldmethod=marker
+set formatoptions=tcq
 
-set hidden
-
-" Allow yy, D and P to work in clipboard
-set clipboard=unnamed
-
+" Backups
+set history=1000
+set undolevels=1000
 set backupdir=~/.vim_backup
+
 if !isdirectory(expand(&backupdir))
     call mkdir(expand(&backupdir), "p")
 endif
@@ -54,7 +69,11 @@ if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
 
-" statusline setup
+if has("mouse")
+    set mouse=a
+endif
+
+" Statusline ----------------------------------------------------------------
 set statusline=%f
 
 " Display a warning if fileformat isnt unix
@@ -89,6 +108,7 @@ set statusline+=%c,     " cursor column
 set statusline+=%l/%L   " cursor line/total lines
 set statusline+=\ %P    " percent through file
 set laststatus=2
+" End Statusline ------------------------------------------------------------
 
 colorscheme desert
 
@@ -108,6 +128,10 @@ nmap N :NERDTreeToggle<CR>
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
+" Block movement
+nmap <tab> %
+vmap <tab> %
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
@@ -117,11 +141,10 @@ let g:CommandTCancelMap='<C-x>'
 
 " Tagbar settings
 let g:tagbar_width = 30
-" autocmd VimEnter * nested :call tagbar#autoopen(1)
-" autocmd FileType * nested :call tagbar#autoopen(0)
 
 " NERDstuff
 let NERDSpaceDelims=1
+let NERDTreeWinSize=35
 let NERDTreeIgnore=['.DS_Store']
 
 " Prevents autocommands from loading twice
