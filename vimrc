@@ -132,6 +132,14 @@ nmap gV `[v`]
 nmap <tab> %
 vmap <tab> %
 
+" Bubble single lines
+nmap <C-Up> ]e
+nmap <C-Down> [e
+
+" Bubble multiple lines in visual mode
+vmap <C-Up> ]egv
+vmap <C-Down> [egv
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
