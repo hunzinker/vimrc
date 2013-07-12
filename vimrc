@@ -147,6 +147,10 @@ let NERDSpaceDelims=1
 let NERDTreeWinSize=35
 let NERDTreeIgnore=['.DS_Store']
 
+" Syntastic
+let g:syntastic_auto_loc_list=1
+let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
+
 " Prevents autocommands from loading twice
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
