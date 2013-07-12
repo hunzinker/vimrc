@@ -110,7 +110,10 @@ set statusline+=\ %P    " percent through file
 set laststatus=2
 " End Statusline ------------------------------------------------------------
 
+" Theme
+" ---------------------------------------------------------------------------
 colorscheme desert
+set background=dark
 
 " Map <Leader>
 let mapleader = ','
@@ -164,29 +167,44 @@ let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']
 let g:SuperTabLongestEnhanced=1
 let g:SuperTabLongestHighlight=1
 
-" Prevents autocommands from loading twice
+" File type utility functions
+" ---------------------------------------------------------------------------
+" Turn wrapping on for text based languages (markdown, txt...)
+function! s:setWrapping()
+    setlocal wrap linebreak nolist spell textwidth=72
+endfunction
+
+" Wrap markdown and compile on save using the markdown preview bundle
+function! s:setMarkdown()
+    call s:setWrapping()
+    autocmd! BufWritePost *.{md,markdown,mdown,mkd,mkdn} :MDP
+endfunction
+
+" Hooks for previewing or running .coffee -> .js
+function! s:setCoffee()
+    map <buffer> <silent><leader>b :CoffeeCompile vertical<cr>
+    map <buffer> <silent><leader>d :CoffeeRun<cr>
+endfunction
+
+" Filetypes
+" ---------------------------------------------------------------------------
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
 
-    " Set filetype to Ruby for Yaml, Rake
-    autocmd BufRead,BufNewFile *.yml,*.rake  set filetype=ruby
-
-    " Set filetype to CSS for Sass
-    autocmd BufRead,BufNewFile *.scss   set filetype=css
-
-    " Set filetype for JavaScript
-    autocmd BufRead,BufNewFile *.js,*.handlebars  set filetype=javascript
-
-    " Setup coffeescript
-    autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-
-    " Set filetype for JSON
+    autocmd BufRead,BufNewFile *.yml,*.rake set filetype=ruby
+    autocmd BufRead,BufNewFile *.scss set filetype=css
+    autocmd BufRead,BufNewFile *.js,*.handlebars set filetype=javascript
+    autocmd BufRead,BufNewFile *.hamlc set filetype=haml
+    autocmd BufRead,BufNewFile *.txt call s:setWrapping()
+    autocmd BufRead,BufNewFile *.coffee call s:setCoffee()
     autocmd BufRead,BufNewFile *.json  set filetype=json
 
     " Recalculate the trailing whitespace warning when idle and after saving
     autocmd CursorHold,BufWritePost * unlet! b:statusline_trailing_space_warning
 endif
 
+" Detect trailing whitespace
+" ---------------------------------------------------------------------------
 " Return '[\s]' if trailing white space is detected
 " Return '' otherwise
 function! StatuslineTrailingSpaceWarning()
