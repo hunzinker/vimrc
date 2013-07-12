@@ -151,6 +151,10 @@ let NERDTreeIgnore=['.DS_Store']
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
 
+" SuperTab
+let g:SuperTabLongestEnhanced=1
+let g:SuperTabLongestHighlight=1
+
 " Prevents autocommands from loading twice
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
