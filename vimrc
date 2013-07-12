@@ -141,6 +141,7 @@ let g:CommandTCancelMap='<C-x>'
 
 " Tagbar settings
 let g:tagbar_width = 30
+let g:tagbar_sort=0
 
 " NERDstuff
 let NERDSpaceDelims=1
