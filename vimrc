@@ -182,6 +182,7 @@ endfunction
 
 " Hooks for previewing or running .coffee -> .js
 function! s:setCoffee()
+    set tabstop=2 shiftwidth=2
     map <buffer> <silent><leader>b :CoffeeCompile vertical<cr>
     map <buffer> <silent><leader>d :CoffeeRun<cr>
 endfunction
@@ -192,7 +193,8 @@ if !exists("autocommands_loaded")
     let autocommands_loaded = 1
 
     autocmd BufRead,BufNewFile *.yml,*.rake set filetype=ruby
-    autocmd BufRead,BufNewFile *.scss,*.sass set filetype=css
+    autocmd BufRead,BufNewFile *.scss set filetype=scss
+    autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call s:setMarkdown()
     autocmd BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set filetype=javascript
     autocmd BufRead,BufNewFile *.hamlc set filetype=haml
     autocmd BufRead,BufNewFile *.txt call s:setWrapping()
