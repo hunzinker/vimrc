@@ -118,7 +118,7 @@ set laststatus=2
 
 " Theme
 " ---------------------------------------------------------------------------
-colorscheme desert
+colorscheme desert256
 set background=dark
 
 " Map <Leader>
