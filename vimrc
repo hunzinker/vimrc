@@ -69,8 +69,14 @@ if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
 
+" Mouse
 if has("mouse")
     set mouse=a
+endif
+
+" Colors
+if $TERM == "xterm-256color"
+    set t_Co=256
 endif
 
 " Statusline ----------------------------------------------------------------
