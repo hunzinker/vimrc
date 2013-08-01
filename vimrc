@@ -75,7 +75,7 @@ if has("mouse")
 endif
 
 " Colors
-if $TERM == "xterm-256color"
+if $TERM == "xterm-256color" || $TERM == "screen-256color"
     set t_Co=256
 endif
 
