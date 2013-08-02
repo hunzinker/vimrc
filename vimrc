@@ -58,13 +58,13 @@ set formatoptions=tcq
 " Backups
 set history=1000
 set undolevels=1000
-set backupdir=~/.vim_backup
+set backupdir=~/.vim/backup
 
 if !isdirectory(expand(&backupdir))
     call mkdir(expand(&backupdir), "p")
 endif
 
-set directory=~/.vim_swap
+set directory=~/.vim/swap
 if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
