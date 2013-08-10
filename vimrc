@@ -180,12 +180,6 @@ function! s:setWrapping()
     setlocal wrap linebreak nolist spell textwidth=72
 endfunction
 
-" Wrap markdown and compile on save using the markdown preview bundle
-function! s:setMarkdown()
-    call s:setWrapping()
-    autocmd! BufWritePost *.{md,markdown,mdown,mkd,mkdn} :MDP
-endfunction
-
 " Hooks for previewing or running .coffee -> .js
 function! s:setCoffee()
     set tabstop=2 shiftwidth=2
@@ -201,7 +195,6 @@ if !exists("autocommands_loaded")
     autocmd BufRead,BufNewFile *.yml,*.rake set filetype=ruby
     autocmd BufRead,BufNewFile *.scss set filetype=scss tabstop=2 shiftwidth=2
     autocmd BufRead,BufNewFile *.css set tabstop=2 shiftwidth=2
-    autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call s:setMarkdown()
     autocmd BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set filetype=javascript
     autocmd BufRead,BufNewFile *.hamlc set filetype=haml
     autocmd BufRead,BufNewFile *.txt call s:setWrapping()
