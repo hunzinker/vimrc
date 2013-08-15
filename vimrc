@@ -149,6 +149,9 @@ nmap <C-Down> [e
 vmap <C-Up> ]egv
 vmap <C-Down> [egv
 
+" Clear the search highlight
+map <silent> \ :silent nohlsearch<cr>
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
