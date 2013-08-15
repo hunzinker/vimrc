@@ -193,8 +193,8 @@ if !exists("autocommands_loaded")
     let autocommands_loaded = 1
 
     autocmd BufRead,BufNewFile *.yml,*.rake set filetype=ruby
-    autocmd BufRead,BufNewFile *.scss set filetype=scss tabstop=2 shiftwidth=2
-    autocmd BufRead,BufNewFile *.css set tabstop=2 shiftwidth=2
+    autocmd BufRead,BufNewFile *.scss set filetype=scss tabstop=2 shiftwidth=2 textwidth=0
+    autocmd BufRead,BufNewFile *.css set tabstop=2 shiftwidth=2 textwidth=0
     autocmd BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set filetype=javascript
     autocmd BufRead,BufNewFile *.hamlc set filetype=haml
     autocmd BufRead,BufNewFile *.txt call s:setWrapping()
