@@ -11,6 +11,8 @@ filetype plugin indent on
 
 set encoding=utf-8
 
+set shellpipe=>
+
 set backspace=indent,eol,start
 set sidescroll=10
 set textwidth=78
