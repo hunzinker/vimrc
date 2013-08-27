@@ -140,6 +140,9 @@ map <leader>a :Ack
 " Toggle spelling hints
 nmap <silent> <leader>ts :set spell!<cr>
 
+" Toggle wrapping in the current buffer
+nmap <silent> <leader>wt :set wrap!<cr>
+
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
