@@ -143,6 +143,9 @@ nmap <silent> <leader>ts :set spell!<cr>
 " Toggle wrapping in the current buffer
 nmap <silent> <leader>wt :set wrap!<cr>
 
+" Remove whitespace - requires trailer trash plugin
+nmap <leader><Space> :Trim<CR>
+
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
