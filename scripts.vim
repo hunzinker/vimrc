@@ -5,7 +5,7 @@
 
 " finish if the filetype was detected
 if did_filetype()
-	finish
+    finish
 endif
 
 " Ruby and python scripts without .rb and .py extensions
@@ -16,8 +16,8 @@ endif
 " setlocal shiftwidth=2
 " setlocal tabstop=2
 if getline(1) =~ '^#!.*ruby'
-	setfiletype ruby
+    setfiletype ruby
 elseif getline(1) =~ '^#!.*python'
-	setfiletype python
+    setfiletype python
 endif
 
