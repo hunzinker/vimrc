@@ -133,8 +133,9 @@ endif
 
 " Key mappings
 nmap <leader>v :tabedit $MYVIMRC<CR>
-nmap <leader>g :TagbarToggle<CR>
+nmap <leader>] :TagbarToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
 map <leader>a :Ack
 
 " Toggle spelling hints
