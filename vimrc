@@ -136,6 +136,9 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
+nmap <leader>t :CommandT<CR>
+nmap <leader>b :CommandTBuffer<CR>
+nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
 map <leader>a :Ack
 
 " Toggle spelling hints
