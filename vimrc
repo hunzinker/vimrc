@@ -139,7 +139,7 @@ nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>t :CommandT<CR>
 nmap <leader>b :CommandTBuffer<CR>
 nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
-map <leader>a :Ack
+map <leader>a :Ack<Space>
 
 " Toggle spelling hints
 nmap <silent> <leader>ts :set spell!<cr>
