@@ -2,6 +2,6 @@
 
 git submodule foreach git pull origin master
 
-cd ~/.vim/bundle/command-t/ruby/command-t
-ruby extconf.rb
-make
+# cd ~/.vim/bundle/command-t/ruby/command-t
+# ruby extconf.rb
+# make
