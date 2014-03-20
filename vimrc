@@ -136,9 +136,6 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
-nmap <leader>t :CommandT<CR>
-nmap <leader>b :CommandTBuffer<CR>
-nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
 map <leader>a :Ack<Space>
 
 " Toggle spelling hints
@@ -170,10 +167,6 @@ map <silent> \ :silent nohlsearch<cr>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
-
-" Command-T settings
-let g:CommandTMaxHeight = 20
-let g:CommandTCancelMap='<C-x>'
 
 " Tagbar settings
 let g:tagbar_width = 30
