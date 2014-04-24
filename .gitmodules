@@ -43,12 +43,6 @@
 [submodule "bundle/slim"]
 	path = bundle/slim
 	url = https://github.com/slim-template/vim-slim.git
-[submodule "bundle/abolish"]
-	path = bundle/abolish
-	url = https://github.com/tpope/vim-abolish.git
-[submodule "bundle/bundler"]
-	path = bundle/bundler
-	url = https://github.com/tpope/vim-bundler.git
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
