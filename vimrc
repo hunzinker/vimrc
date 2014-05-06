@@ -169,12 +169,12 @@ map <silent> \ :silent nohlsearch<cr>
 cmap w!! %!sudo tee > /dev/null %
 
 " Tagbar settings
-let g:tagbar_width = 30
+let g:tagbar_width=25
 let g:tagbar_sort=0
 
 " NERDstuff
 let NERDSpaceDelims=1
-let NERDTreeWinSize=35
+let NERDTreeWinSize=25
 let NERDTreeIgnore=['.DS_Store']
 
 " Syntastic
