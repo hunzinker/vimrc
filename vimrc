@@ -136,6 +136,7 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
+nmap <leader>p :call TogglePaste()<CR>
 map <leader>a :Ack<Space>
 
 " Toggle spelling hints
@@ -223,7 +224,6 @@ endif
 " Return '' otherwise
 function! StatuslineTrailingSpaceWarning()
     if !exists("b:statusline_trailing_space_warning")
-
         if !&modifiable
             let b:statusline_trailing_space_warning = ''
             return b:statusline_trailing_space_warning
@@ -236,4 +236,14 @@ function! StatuslineTrailingSpaceWarning()
         endif
     endif
     return b:statusline_trailing_space_warning
+endfunction
+
+" Toggle paste
+" ---------------------------------------------------------------------------
+function! TogglePaste()
+    if &paste
+        :set nopaste
+    else
+        :set paste
+    endif
 endfunction
