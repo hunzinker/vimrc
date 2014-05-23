@@ -136,7 +136,7 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
-nmap <leader>p :call TogglePaste()<CR>
+nmap <leader>p :PasteToggle<CR>
 map <leader>a :Ack<Space>
 
 " Toggle spelling hints
@@ -247,3 +247,4 @@ function! TogglePaste()
         :set paste
     endif
 endfunction
+command! -bar PasteToggle :call TogglePaste()
