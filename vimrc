@@ -146,7 +146,7 @@ nmap <silent> <leader>ts :set spell!<cr>
 nmap <silent> <leader>wt :set wrap!<cr>
 
 " Remove whitespace - requires trailer trash plugin
-nmap <leader><Space> :Trim<CR>
+nmap <leader><Space> :TrailerTrim<CR>
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
