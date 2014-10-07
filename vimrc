@@ -176,30 +176,7 @@ if !exists("autocommands_loaded")
     autocmd BufRead,BufNewFile *.txt call s:setWrapping()
     autocmd BufRead,BufNewFile *.coffee call s:setCoffee()
     autocmd BufRead,BufNewFile *.json  set filetype=json
-
-    " Recalculate the trailing whitespace warning when idle and after saving
-    autocmd CursorHold,BufWritePost * unlet! b:statusline_trailing_space_warning
 endif
-
-" Detect trailing whitespace
-" ---------------------------------------------------------------------------
-" Return '[\s]' if trailing white space is detected
-" Return '' otherwise
-function! StatuslineTrailingSpaceWarning()
-    if !exists("b:statusline_trailing_space_warning")
-        if !&modifiable
-            let b:statusline_trailing_space_warning = ''
-            return b:statusline_trailing_space_warning
-        endif
-
-        if search('\s\+$', 'nw') != 0
-            let b:statusline_trailing_space_warning = '[\s]'
-        else
-            let b:statusline_trailing_space_warning = ''
-        endif
-    endif
-    return b:statusline_trailing_space_warning
-endfunction
 
 " Toggle paste
 " ---------------------------------------------------------------------------
