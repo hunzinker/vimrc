@@ -81,43 +81,6 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color"
     set t_Co=256
 endif
 
-" Statusline ----------------------------------------------------------------
-set statusline=%f
-
-" Display a warning if fileformat isnt unix
-set statusline+=%#warningmsg#
-set statusline+=%{&ff!='unix'?'['.&ff.']':''}
-set statusline+=%*
-
-" Display a warning if file encoding isnt utf-8
-set statusline+=%#warningmsg#
-set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
-set statusline+=%*
-
-set statusline+=%h      " help file flag
-set statusline+=%y      " filetype
-set statusline+=%r      " read only flag
-set statusline+=%m      " modified flag
-
-set statusline+=%{fugitive#statusline()}
-
-" Display a warning if the file has trailing whitespace
-set statusline+=%#warningmsg#
-set statusline+=%{StatuslineTrailingSpaceWarning()}
-set statusline+=%*
-
-" Display a warning if &paste is set
-set statusline+=%#error#
-set statusline+=%{&paste?'[paste]':''}
-set statusline+=%*
-
-set statusline+=%=      " left/right separator
-set statusline+=%c,     " cursor column
-set statusline+=%l/%L   " cursor line/total lines
-set statusline+=\ %P    " percent through file
-set laststatus=2
-" End Statusline ------------------------------------------------------------
-
 " Theme
 " ---------------------------------------------------------------------------
 colorscheme desert256
