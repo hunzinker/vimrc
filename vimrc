@@ -156,13 +156,6 @@ function! s:setWrapping()
     setlocal wrap linebreak nolist spell textwidth=72
 endfunction
 
-" Hooks for previewing or running .coffee -> .js
-function! s:setCoffee()
-    set tabstop=2 shiftwidth=2
-    map <buffer> <silent><leader>b :CoffeeCompile vertical<cr>
-    map <buffer> <silent><leader>d :CoffeeRun<cr>
-endfunction
-
 " Filetypes
 " ---------------------------------------------------------------------------
 if !exists("autocommands_loaded")
@@ -172,9 +165,7 @@ if !exists("autocommands_loaded")
     autocmd BufRead,BufNewFile *.scss set filetype=scss tabstop=2 shiftwidth=2 textwidth=0
     autocmd BufRead,BufNewFile *.css set tabstop=2 shiftwidth=2 textwidth=0
     autocmd BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set filetype=javascript
-    autocmd BufRead,BufNewFile *.hamlc set filetype=haml
     autocmd BufRead,BufNewFile *.txt call s:setWrapping()
-    autocmd BufRead,BufNewFile *.coffee call s:setCoffee()
     autocmd BufRead,BufNewFile *.json  set filetype=json
 endif
 
