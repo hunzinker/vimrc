@@ -98,9 +98,10 @@ endif
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
+nmap <leader>d :NERDTreeFind<CR>
 nmap <leader>p :PasteToggle<CR>
-map <leader>a :Ack<Space>
+nmap <leader>f :CtrlP<CR>
+nmap <leader>a :Ack<Space>
 
 " Toggle spelling hints
 nmap <silent> <leader>ts :set spell!<cr>
