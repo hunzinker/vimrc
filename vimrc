@@ -144,7 +144,7 @@ let NERDTreeIgnore=['.DS_Store']
 
 " Syntastic
 let g:syntastic_auto_loc_list=1
-let g:syntastic_mode_map={'mode': 'active','passive_filetypes': ['scss', 'sass']}
+let g:syntastic_mode_map={'mode': 'active','passive_filetypes':['scss','sass']}
 
 " SuperTab
 let g:SuperTabLongestEnhanced=1
@@ -162,12 +162,15 @@ endfunction
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
 
-    autocmd BufRead,BufNewFile *.yml,*.rake set filetype=ruby
-    autocmd BufRead,BufNewFile *.scss set filetype=scss tabstop=2 shiftwidth=2 textwidth=0
-    autocmd BufRead,BufNewFile *.css set tabstop=2 shiftwidth=2 textwidth=0
-    autocmd BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set filetype=javascript
-    autocmd BufRead,BufNewFile *.txt call s:setWrapping()
-    autocmd BufRead,BufNewFile *.json  set filetype=json
+    au BufRead,BufNewFile *.yml,*.rake set filetype=ruby
+    au BufRead,BufNewFile *.scss set filetype=scss tabstop=2 shiftwidth=2 tw=0
+    au BufRead,BufNewFile *.css set tabstop=2 shiftwidth=2 tw=0
+    au BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set filetype=javascript
+    au BufRead,BufNewFile *.txt call s:setWrapping()
+    au BufRead,BufNewFile *.json  set filetype=json
+
+    " Highlight lines > 79 characters
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>79v.\+', -1)
 endif
 
 " Toggle paste
