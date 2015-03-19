@@ -15,7 +15,7 @@ set shellpipe=>
 
 set backspace=indent,eol,start
 set sidescroll=10
-set textwidth=78
+set textwidth=79
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -100,14 +100,15 @@ nmap <leader>] :TagbarToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 nmap <leader>d :NERDTreeFind<CR>
 nmap <leader>p :PasteToggle<CR>
+nmap <leader>l :LongLines<CR>
 nmap <leader>f :CtrlP<CR>
 nmap <leader>a :Ack<Space>
 
 " Toggle spelling hints
-nmap <silent> <leader>ts :set spell!<cr>
+nmap <silent> <leader>ts :set spell!<CR>
 
 " Toggle wrapping in the current buffer
-nmap <silent> <leader>wt :set wrap!<cr>
+nmap <silent> <leader>wt :set wrap!<CR>
 
 " Remove whitespace - requires trailer trash plugin
 nmap <leader><Space> :TrailerTrim<CR>
@@ -128,7 +129,7 @@ vmap <C-Up> ]egv
 vmap <C-Down> [egv
 
 " Clear the search highlight
-map <silent> \ :silent nohlsearch<cr>
+map <silent> \ :silent nohlsearch<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
@@ -150,13 +151,6 @@ let g:syntastic_mode_map={'mode': 'active','passive_filetypes':['scss','sass']}
 let g:SuperTabLongestEnhanced=1
 let g:SuperTabLongestHighlight=1
 
-" File type utility functions
-" ---------------------------------------------------------------------------
-" Turn wrapping on for text based languages (markdown, txt...)
-function! s:setWrapping()
-    setlocal wrap linebreak nolist spell textwidth=72
-endfunction
-
 " Filetypes
 " ---------------------------------------------------------------------------
 if !exists("autocommands_loaded")
@@ -166,12 +160,16 @@ if !exists("autocommands_loaded")
     au BufRead,BufNewFile *.scss set filetype=scss tabstop=2 shiftwidth=2 tw=0
     au BufRead,BufNewFile *.css set tabstop=2 shiftwidth=2 tw=0
     au BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set filetype=javascript
-    au BufRead,BufNewFile *.txt call s:setWrapping()
+    au BufRead,BufNewFile *.txt,*.md call SetWrapping()
     au BufRead,BufNewFile *.json  set filetype=json
-
-    " Highlight lines > 79 characters
-    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>79v.\+', -1)
 endif
+
+" File type utility functions
+" ---------------------------------------------------------------------------
+" Turn wrapping on for text based languages (markdown, txt...)
+function! SetWrapping()
+    setlocal wrap linebreak nolist spell
+endfunction
 
 " Toggle paste
 " ---------------------------------------------------------------------------
@@ -183,3 +181,17 @@ function! TogglePaste()
     endif
 endfunction
 command! -bar PasteToggle :call TogglePaste()
+
+" Toggle Highlight Long Lines
+" ----------------------------------------------------------------------------
+function! ToggleLongLineHighlight()
+    if exists('w:long_line_match')
+      silent! call matchdelete(w:long_line_match)
+      unlet w:long_line_match
+    elseif &textwidth > 0
+      let w:long_line_match = matchadd('Search', '\%>'.&tw.'v.\+', -1)
+    else
+      let w:long_line_match = matchadd('Searcg', '\%>80v.\+', -1)
+    endif
+endfunction
+command! -bar LongLines :call ToggleLongLineHighlight()
