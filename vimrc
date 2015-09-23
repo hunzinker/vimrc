@@ -103,6 +103,10 @@ nmap <leader>p :PasteToggle<CR>
 nmap <leader>l :LongLines<CR>
 nmap <leader>f :CtrlP<CR>
 nmap <leader>a :Ack<Space>
+nmap <Leader>t= :Tabularize /=<CR>
+vmap <Leader>t= :Tabularize /=<CR>
+nmap <Leader>t: :Tabularize /:\zs<CR>
+vmap <Leader>t: :Tabularize /:\zs<CR>
 
 " Toggle spelling hints
 nmap <silent> <leader>ts :set spell!<CR>
