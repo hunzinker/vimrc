@@ -55,3 +55,6 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/mustache-handlebars"]
+	path = bundle/mustache-handlebars
+	url = https://github.com/mustache/vim-mustache-handlebars.git
