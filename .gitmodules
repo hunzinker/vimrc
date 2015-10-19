@@ -58,3 +58,6 @@
 [submodule "bundle/mustache-handlebars"]
 	path = bundle/mustache-handlebars
 	url = https://github.com/mustache/vim-mustache-handlebars.git
+[submodule "bundle/rust-vim"]
+	path = bundle/rust-vim
+	url = https://github.com/wting/rust.vim.git
