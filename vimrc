@@ -103,10 +103,10 @@ nmap <leader>p :PasteToggle<CR>
 nmap <leader>l :LongLines<CR>
 nmap <leader>f :CtrlP<CR>
 nmap <leader>a :Ack<Space>
-nmap <Leader>t= :Tabularize /=<CR>
-vmap <Leader>t= :Tabularize /=<CR>
-nmap <Leader>t: :Tabularize /:\zs<CR>
-vmap <Leader>t: :Tabularize /:\zs<CR>
+nmap <leader>t= :Tabularize /=<CR>
+vmap <leader>t= :Tabularize /=<CR>
+nmap <leader>t: :Tabularize /:\zs<CR>
+vmap <leader>t: :Tabularize /:\zs<CR>
 
 " Toggle spelling hints
 nmap <silent> <leader>ts :set spell!<CR>
@@ -115,7 +115,7 @@ nmap <silent> <leader>ts :set spell!<CR>
 nmap <silent> <leader>wt :set wrap!<CR>
 
 " Remove whitespace - requires trailer trash plugin
-nmap <leader><Space> :TrailerTrim<CR>
+nmap <leader><space> :TrailerTrim<CR>
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
