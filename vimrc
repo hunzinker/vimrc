@@ -150,6 +150,7 @@ let NERDTreeIgnore=['.DS_Store']
 " Syntastic
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes':['scss','sass']}
+let g:syntastic_yaml_checkers = ['yamllint']
 
 " SuperTab
 let g:SuperTabLongestEnhanced=1
@@ -160,7 +161,7 @@ let g:SuperTabLongestHighlight=1
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
 
-    au BufRead,BufNewFile *.yml,*.rake set filetype=ruby
+    au BufRead,BufNewFile *.rake set filetype=ruby
     au BufRead,BufNewFile *.scss set filetype=scss tabstop=2 shiftwidth=2 tw=0
     au BufRead,BufNewFile *.css set tabstop=2 shiftwidth=2 tw=0
     au BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set filetype=javascript
