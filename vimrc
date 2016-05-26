@@ -1,7 +1,6 @@
 set nocompatible
 
-call pathogen#infect('bundle/{}')
-call pathogen#helptags()
+execute pathogen#infect()
 
 syntax on
 
@@ -137,6 +136,17 @@ map <silent> \ :silent nohlsearch<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
+
+" Emacs style command line bindings
+cnoremap <C-A> <Home>
+cnoremap <C-B> <Left>
+cnoremap <C-D> <Del>
+cnoremap <C-E> <End>
+cnoremap <C-F> <Right>
+cnoremap <C-N> <Down>
+cnoremap <C-P> <Up>
+cnoremap <Esc><C-B> <S-Left>
+cnoremap <Esc><C-F> <S-Right>
 
 " Tagbar settings
 let g:tagbar_width=25
