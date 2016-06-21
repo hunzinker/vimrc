@@ -97,7 +97,10 @@ endif
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>d :NERDTreeFind<CR>
+nmap <leader>e :NERDTreeFind<CR>
+nmap <leader>d :EnDeclarationSplit v<CR>
+nmap <leader>t :EnTypeCheck<CR>
+nmap <leader>b :EnDocBrowser<CR>
 nmap <leader>p :PasteToggle<CR>
 nmap <leader>l :LongLines<CR>
 nmap <leader>f :CtrlP<CR>
@@ -177,6 +180,8 @@ if !exists("autocommands_loaded")
     au BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set filetype=javascript
     au BufRead,BufNewFile *.txt,*.md call SetWrapping()
     au BufRead,BufNewFile *.json  set filetype=json
+    au BufRead,BufNewFile *.yaml,*.yml set filetype=yaml tabstop=2 shiftwidth=2
+
 endif
 
 " File type utility functions
@@ -206,7 +211,7 @@ function! ToggleLongLineHighlight()
     elseif &textwidth > 0
       let w:long_line_match = matchadd('Search', '\%>'.&tw.'v.\+', -1)
     else
-      let w:long_line_match = matchadd('Searcg', '\%>80v.\+', -1)
+      let w:long_line_match = matchadd('Search', '\%>80v.\+', -1)
     endif
 endfunction
 command! -bar LongLines :call ToggleLongLineHighlight()
