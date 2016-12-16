@@ -64,3 +64,6 @@
 [submodule "bundle/lexima-vim"]
 	path = bundle/lexima-vim
 	url = https://github.com/cohama/lexima.vim.git
+[submodule "bundle/vim-youcompleteme"]
+	path = bundle/vim-youcompleteme
+	url = https://github.com/valloric/youcompleteme
