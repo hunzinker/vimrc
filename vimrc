@@ -169,6 +169,9 @@ let g:syntastic_yaml_checkers = ['yamllint']
 let g:SuperTabLongestEnhanced=1
 let g:SuperTabLongestHighlight=1
 
+" Ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 " Filetypes
 " ---------------------------------------------------------------------------
 if !exists("autocommands_loaded")
