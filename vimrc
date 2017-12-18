@@ -80,6 +80,11 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color"
     set t_Co=256
 endif
 
+" Cursor
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[0 q"
+
+
 " Theme
 " ---------------------------------------------------------------------------
 colorscheme desert256
