@@ -75,6 +75,10 @@ if has("mouse")
     set mouse=a
 endif
 
+if !has("nvim")
+    set ttymouse=xterm2
+endif
+
 " Colors
 if $TERM == "xterm-256color" || $TERM == "screen-256color"
     set t_Co=256
@@ -87,8 +91,13 @@ let &t_EI = "\e[0 q"
 
 " Theme
 " ---------------------------------------------------------------------------
-colorscheme desert256
+colorscheme one
 set background=dark
+let g:airline_theme="one"
+
+if has("nvim")
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 
 " Map <Leader>
 let mapleader = ','
