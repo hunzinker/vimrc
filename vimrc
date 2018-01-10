@@ -88,7 +88,6 @@ endif
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[0 q"
 
-
 " Theme
 " ---------------------------------------------------------------------------
 colorscheme one
@@ -98,6 +97,13 @@ let g:airline_theme="one"
 if has("nvim")
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
+
+highlight Pmenu ctermfg=7 ctermbg=0 guifg=#ffffff guibg=#000000
+
+" YCM settings
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
+let g:ycm_key_list_stop_completion = ['<C-y>']
 
 " Map <Leader>
 let mapleader = ','
