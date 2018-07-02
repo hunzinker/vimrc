@@ -117,6 +117,9 @@ colorscheme one
 set background=dark
 let g:airline_theme="one"
 
+call one#highlight('Pmenu', 'cccccc', '', 'none')
+call one#highlight('PmenuSel', '3e4452', '', 'none')
+
 if has("nvim")
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
