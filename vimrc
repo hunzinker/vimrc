@@ -19,6 +19,16 @@ Plug 'tpope/vim-endwise'
 Plug 'rakr/vim-one'
 Plug 'rust-lang/rust.vim'
 Plug 'derekwyatt/vim-scala'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 call plug#end()
 
@@ -142,7 +152,8 @@ nmap <leader>t :EnTypeCheck<CR>
 nmap <leader>b :EnDocBrowser<CR>
 nmap <leader>p :PasteToggle<CR>
 nmap <leader>l :LongLines<CR>
-nmap <leader>f :CtrlP<CR>
+nmap <leader>f :FZF<CR>
+nmap <leader>F :FZF!<CR>
 nmap <leader>a :Ack<Space>
 nmap <leader>t= :Tabularize /=<CR>
 vmap <leader>t= :Tabularize /=<CR>
@@ -189,6 +200,8 @@ cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
 cnoremap <Esc><C-B> <S-Left>
 cnoremap <Esc><C-F> <S-Right>
+
+let g:deoplete#enable_at_startup=1
 
 " Tagbar settings
 let g:tagbar_width=25
