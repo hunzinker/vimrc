@@ -3,3 +3,4 @@ swap/
 backup/
 spell/
 plugged/
+autoload/plug.vim.old
