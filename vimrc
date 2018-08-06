@@ -236,6 +236,7 @@ if !exists("autocommands_loaded")
     au BufRead,BufNewFile *.txt,*.md call SetWrapping()
     au BufRead,BufNewFile *.json  set filetype=json
     au BufRead,BufNewFile *.yaml,*.yml set filetype=yaml tabstop=2 shiftwidth=2
+    au BufRead,BufNewFile *.sql,*.psql set filetype=sql tabstop=2 shiftwidth=2
 
 endif
 
