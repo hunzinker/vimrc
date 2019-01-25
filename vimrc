@@ -21,6 +21,19 @@ Plug 'rust-lang/rust.vim'
 Plug 'derekwyatt/vim-scala'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'vim-ruby/vim-ruby'
+
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --clang-completer --go-completer --rust-completer --java-completer --ts-completer
+  endif
+endfunction
+
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -216,6 +229,7 @@ let NERDTreeIgnore=['.DS_Store']
 let g:syntastic_auto_loc_list=1
 let g:syntastic_mode_map={'mode': 'active','passive_filetypes':['scss','sass']}
 let g:syntastic_yaml_checkers = ['yamllint']
+let g:Syntastic_python_checkers = ['pylint']
 
 " SuperTab
 let g:SuperTabLongestEnhanced=1
