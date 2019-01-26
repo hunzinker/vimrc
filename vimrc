@@ -1,6 +1,6 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -24,13 +24,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-ruby/vim-ruby'
 
 function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py --clang-completer --go-completer --rust-completer --java-completer --ts-completer
-  endif
+    " info is a dictionary with 3 fields
+    " - name:   name of the plugin
+    " - status: 'installed', 'updated', or 'unchanged'
+    " - force:  set on PlugInstall! or PlugUpdate!
+    if a:info.status == 'installed' || a:info.force
+        !./install.py --clang-completer --go-completer --rust-completer --java-completer --ts-completer
+    endif
 endfunction
 
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
@@ -251,6 +251,7 @@ if !exists("autocommands_loaded")
     au BufRead,BufNewFile *.json  set filetype=json
     au BufRead,BufNewFile *.yaml,*.yml set filetype=yaml tabstop=2 shiftwidth=2
     au BufRead,BufNewFile *.sql,*.psql set filetype=sql tabstop=2 shiftwidth=2
+    au BufRead,BufNewFile *.sbt set filetype=scala
 
 endif
 
