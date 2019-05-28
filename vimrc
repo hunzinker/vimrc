@@ -22,6 +22,7 @@ Plug 'derekwyatt/vim-scala'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 function! BuildYCM(info)
     " info is a dictionary with 3 fields
