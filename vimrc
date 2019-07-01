@@ -11,11 +11,12 @@ Plug 'cohama/lexima.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-endwise'
 Plug 'vim-syntastic/syntastic'
 Plug 'csexton/trailertrash.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-endwise'
 Plug 'rakr/vim-one'
 Plug 'rust-lang/rust.vim'
 Plug 'derekwyatt/vim-scala'
@@ -23,18 +24,8 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-
-function! BuildYCM(info)
-    " info is a dictionary with 3 fields
-    " - name:   name of the plugin
-    " - status: 'installed', 'updated', or 'unchanged'
-    " - force:  set on PlugInstall! or PlugUpdate!
-    if a:info.status == 'installed' || a:info.force
-        !./install.py --clang-completer --go-completer --rust-completer --java-completer --ts-completer
-    endif
-endfunction
-
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'hashivim/vim-terraform'
+Plug 'airblade/vim-gitgutter'
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -238,6 +229,9 @@ let g:SuperTabLongestHighlight=1
 
 " Ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Terraform
+let g:terraform_fmt_on_save=0
 
 " Filetypes
 " ---------------------------------------------------------------------------
