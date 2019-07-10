@@ -13,27 +13,16 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
-Plug 'vim-syntastic/syntastic'
-Plug 'csexton/trailertrash.vim'
+Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
-Plug 'rust-lang/rust.vim'
 Plug 'derekwyatt/vim-scala'
+Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'vim-ruby/vim-ruby'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'hashivim/vim-terraform'
 Plug 'airblade/vim-gitgutter'
-
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
 
 call plug#end()
 
@@ -125,7 +114,6 @@ endif
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[0 q"
 
-
 " Theme
 " ---------------------------------------------------------------------------
 colorscheme one
@@ -149,21 +137,12 @@ endif
 
 " Key mappings
 nmap <leader>v :tabedit $MYVIMRC<CR>
-nmap <leader>] :TagbarToggle<CR>
 nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>e :NERDTreeFind<CR>
-nmap <leader>d :EnDeclarationSplit v<CR>
-nmap <leader>t :EnTypeCheck<CR>
-nmap <leader>b :EnDocBrowser<CR>
 nmap <leader>p :PasteToggle<CR>
 nmap <leader>l :LongLines<CR>
 nmap <leader>f :FZF<CR>
 nmap <leader>F :FZF!<CR>
 nmap <leader>a :Ack<Space>
-nmap <leader>t= :Tabularize /=<CR>
-vmap <leader>t= :Tabularize /=<CR>
-nmap <leader>t: :Tabularize /:\zs<CR>
-vmap <leader>t: :Tabularize /:\zs<CR>
 
 " Toggle spelling hints
 nmap <silent> <leader>ts :set spell!<CR>
@@ -171,26 +150,71 @@ nmap <silent> <leader>ts :set spell!<CR>
 " Toggle wrapping in the current buffer
 nmap <silent> <leader>wt :set wrap!<CR>
 
-" Remove whitespace - requires trailer trash plugin
-nmap <leader><space> :TrailerTrim<CR>
-
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
-" Block movement
-nmap <tab> %
-vmap <tab> %
-
-" Bubble single lines
-nmap <C-Up> ]e
-nmap <C-Down> [e
-
-" Bubble multiple lines in visual mode
-vmap <C-Up> ]egv
-vmap <C-Down> [egv
-
 " Clear the search highlight
 map <silent> \ :silent nohlsearch<CR>
+
+" Ale
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-Up> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-Down> <Plug>(ale_next_wrap)
+
+"""""""""""
+" CoC
+"""""""""""
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+set nobackup
+set nowritebackup
+set cmdheight=2
+
+" Use <c-space> for trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <leader>ac <Plug>(coc-codeaction)
+
+nnoremap <silent> F :call CocAction('format')<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nmap <leader>rn <Plug>(coc-rename)
+
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+"""""""""""
+" End CoC
+"""""""""""
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
@@ -206,32 +230,20 @@ cnoremap <C-P> <Up>
 cnoremap <Esc><C-B> <S-Left>
 cnoremap <Esc><C-F> <S-Right>
 
-let g:deoplete#enable_at_startup=1
-
-" Tagbar settings
-let g:tagbar_width=25
-let g:tagbar_sort=0
-
 " NERDstuff
 let NERDSpaceDelims=1
 let NERDTreeWinSize=25
 let NERDTreeIgnore=['.DS_Store']
 
-" Syntastic
-let g:syntastic_auto_loc_list=1
-let g:syntastic_mode_map={'mode': 'active','passive_filetypes':['scss','sass']}
-let g:syntastic_yaml_checkers = ['yamllint']
-let g:Syntastic_python_checkers = ['pylint']
-
-" SuperTab
-let g:SuperTabLongestEnhanced=1
-let g:SuperTabLongestHighlight=1
-
 " Ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-" Terraform
-let g:terraform_fmt_on_save=0
+" Airline
+let g:airline#extensions#ale#enabled = 1
+
+" Ale
+let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }
+let g:ale_fix_on_save = 1
 
 " Filetypes
 " ---------------------------------------------------------------------------
@@ -249,6 +261,8 @@ if !exists("autocommands_loaded")
     au BufRead,BufNewFile *.sbt set filetype=scala
 
 endif
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " File type utility functions
 " ---------------------------------------------------------------------------
