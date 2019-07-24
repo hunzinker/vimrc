@@ -135,6 +135,9 @@ if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
+" Commands
+com! FormatJSON %!jq '.'
+
 " Key mappings
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>n :NERDTreeToggle<CR>
@@ -143,6 +146,9 @@ nmap <leader>l :LongLines<CR>
 nmap <leader>f :FZF<CR>
 nmap <leader>F :FZF!<CR>
 nmap <leader>a :Ack<Space>
+
+" Formatting
+nmap =j :FormatJSON<CR>
 
 " Toggle spelling hints
 nmap <silent> <leader>ts :set spell!<CR>
