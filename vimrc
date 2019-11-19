@@ -6,6 +6,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'universal-ctags/ctags'
 Plug 'mileszs/ack.vim'
 Plug 'cohama/lexima.vim'
 Plug 'scrooloose/nerdcommenter'
