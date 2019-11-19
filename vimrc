@@ -257,15 +257,16 @@ let g:ale_fix_on_save = 1
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
 
-    au BufRead,BufNewFile *.rake set filetype=ruby
-    au BufRead,BufNewFile *.scss set filetype=scss tabstop=2 shiftwidth=2 tw=0
-    au BufRead,BufNewFile *.css set tabstop=2 shiftwidth=2 tw=0
-    au BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set filetype=javascript
+    au BufRead,BufNewFile *.rake set ft=ruby
+    au BufRead,BufNewFile *.scss set ft=scss ts=2 sw=2 tw=0
+    au BufRead,BufNewFile *.css set ts=2 sw=2 tw=0
+    au BufRead,BufNewFile *.js,*.handlebars,*.hb,*.us set ft=javascript
     au BufRead,BufNewFile *.txt,*.md call SetWrapping()
-    au BufRead,BufNewFile *.json  set filetype=json
-    au BufRead,BufNewFile *.yaml,*.yml set filetype=yaml tabstop=2 shiftwidth=2
-    au BufRead,BufNewFile *.sql,*.psql set filetype=sql tabstop=2 shiftwidth=2
-    au BufRead,BufNewFile *.sbt set filetype=scala
+    au BufRead,BufNewFile *.json  set ft=json
+    au BufRead,BufNewFile *.yaml,*.yml set ft=yaml ts=2 sw=2
+    au BufRead,BufNewFile *.sql,*.psql set ft=sql ts=2 sw=2
+    au BufRead,BufNewFile *.sbt set ft=scala
+    au BufRead,BufNewFile *Jenkinsfile* set ft=groovy ts=2 sw=2
 
 endif
 
