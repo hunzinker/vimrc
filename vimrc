@@ -14,6 +14,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-obsession'
 Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -247,6 +248,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " Airline
 let g:airline#extensions#ale#enabled = 1
+let g:airline_section_z = airline#section#create(['%{ObsessionStatus(''+Obs'', '''')}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
 
 " Ale
 let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'] }
