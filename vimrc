@@ -226,6 +226,9 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
+" Remove file
+command! -complete=file -nargs=1 Remove :echo 'Remove: '.'<f-args>'.' '.(delete(<f-args>) == 0 ? 'Deleted!' : 'Delete failed')
+
 " Emacs style command line bindings
 cnoremap <C-A> <Home>
 cnoremap <C-B> <Left>
