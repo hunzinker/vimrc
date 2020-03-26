@@ -7,7 +7,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'universal-ctags/ctags'
-Plug 'mileszs/ack.vim'
 Plug 'cohama/lexima.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -147,7 +146,7 @@ nmap <leader>p :PasteToggle<CR>
 nmap <leader>l :LongLines<CR>
 nmap <leader>f :FZF<CR>
 nmap <leader>F :FZF!<CR>
-nmap <leader>a :Ack<Space>
+nmap <leader>a :Ag!<Space>
 
 " Formatting
 nmap =j :FormatJSON<CR>
@@ -243,8 +242,9 @@ let NERDSpaceDelims=1
 let NERDTreeWinSize=25
 let NERDTreeIgnore=['.DS_Store']
 
-" Ag
-let g:ackprg = 'ag --nogroup --nocolor --column'
+" Ag + fzf
+" let g:ackprg = 'ag --nogroup --nocolor --column'
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path="0;33"', <bang>0)
 
 " Airline
 let g:airline#extensions#ale#enabled = 1
