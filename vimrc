@@ -19,6 +19,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
 Plug 'derekwyatt/vim-scala'
+Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
