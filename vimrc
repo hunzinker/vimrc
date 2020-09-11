@@ -20,7 +20,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
 Plug 'derekwyatt/vim-scala'
 Plug 'rust-lang/rust.vim'
-Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -179,6 +179,8 @@ set signcolumn=yes
 set nobackup
 set nowritebackup
 set cmdheight=2
+
+let g:coc_global_extensions = ['coc-solargraph']
 
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
