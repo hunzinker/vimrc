@@ -7,7 +7,9 @@
     "metals": {
       "command": "metals-vim",
       "rootPatterns": ["build.sbt"],
-      "filetypes": ["scala", "sbt"]
+      "filetypes": ["scala", "sbt"],
+      "metals.statusBarEnabled": true,
+      "coc.preferences.formatOnSaveFiletypes": ["scala"]
     },
     "bash": {
       "command": "bash-language-server",
