@@ -21,8 +21,7 @@ Plug 'rakr/vim-one'
 Plug 'derekwyatt/vim-scala'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'airblade/vim-gitgutter'
 
