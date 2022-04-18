@@ -52,6 +52,7 @@ set wildmenu
 set wildmode=list:longest
 set completeopt=longest,menu
 set pumheight=20
+set ttimeoutlen=300
 
 " Buffers
 set hidden
