@@ -3,6 +3,7 @@
   "codeLens.enable": true,
   "solargraph.transport": "socket",
   "solargraph.commandPath": "/usr/local/var/rbenv/shims/solargraph",
+  "solargraph.diagnostics": false,
   "languageserver": {
     "metals": {
       "command": "metals-vim",
@@ -22,5 +23,6 @@
       "filetypes": ["py"],
       "pythonPath": "python3"
     }
-  }
+  },
+  "python.pythonPath": "/Users/kenseal/.ebcli-virtual-env/bin/python"
 }
