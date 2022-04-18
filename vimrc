@@ -148,7 +148,7 @@ nmap <leader>p :PasteToggle<CR>
 nmap <leader>l :LongLines<CR>
 nmap <leader>f :FZF<CR>
 nmap <leader>F :FZF!<CR>
-nmap <leader>a :Ag!<Space>
+nmap <leader>a :Rg<Space>
 
 " Formatting
 nmap =j :FormatJSON<CR>
