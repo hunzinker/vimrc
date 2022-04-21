@@ -22,7 +22,10 @@
       "enable": true,
       "filetypes": ["py"],
       "pythonPath": "python3"
+    },
+    "eslint": {
+      "autoFixOnSave": true,
+      "filetypes": ["javascript","javascriptreact","typescript","typescriptreact","html","vue","markdown"]
     }
-  },
-  "python.pythonPath": "/Users/kenseal/.ebcli-virtual-env/bin/python"
+  }
 }
