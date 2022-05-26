@@ -20,8 +20,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
 Plug 'derekwyatt/vim-scala'
 Plug 'rust-lang/rust.vim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'commit': 'a4b78e7', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'neoclide/coc.nvim', {'commit': 'a4b78e7', 'do': 'yarn install --frozen-lockfile'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
