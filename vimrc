@@ -139,6 +139,7 @@ endif
 
 " Commands
 com! FormatJSON %!jq '.'
+let g:rust_clip_command = 'pbcopy'
 
 " Key mappings
 nmap <leader>v :tabedit $MYVIMRC<CR>
@@ -151,6 +152,7 @@ nmap <leader>a :Rg<Space>
 
 " Formatting
 nmap =j :FormatJSON<CR>
+let g:rustfmt_autosave = 1
 
 " Toggle spelling hints
 nmap <silent> <leader>ts :set spell!<CR>
